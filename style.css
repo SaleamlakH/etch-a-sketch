@@ -59,3 +59,83 @@ h1 {
     width: 450px;
     height: 450px;
 }
+
+.size-control {
+    padding: 20px 0px;
+    border-bottom: 1px solid #f4f4f472;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+button.grid-size {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    padding: 4px;
+    background-color: #0f0b92;
+    border: 1px solid #f4f4f472;
+    border-radius: 0.5em;
+    flex: 1;
+}
+
+.size-control span {
+    font-size: 12px;
+}
+
+.actions {
+    margin-top: 16px;
+    padding-bottom: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.actions button {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    background-color: #0f0b92;
+    border: none;
+    border: 1px solid #f4f4f452;
+    border-radius: 0.5em;
+}
+
+.colors {
+    padding: 5px;
+    min-height: 70px;
+    border-top: 2px solid #3630dd;
+    border-bottom: 2px solid #3630dd;
+    border-radius: 0.5em;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.added-colors {
+    display: flex;
+    align-items: flex-start;
+}
+
+.selected-color {
+    width: 25px;
+    border: 1px solid #f4f4f452;
+    border-radius: 0.5em;
+}
+
+.added-colors > button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #f4f4f452;
+    border-radius: 0.3em;
+}
+
+.added-colors .black {
+    background-color: #000;
+}
