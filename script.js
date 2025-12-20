@@ -11,7 +11,6 @@ function makeGrid(size) {
         while (columnNumber > 0) {
             const column = document.createElement('div');
             
-            column.addEventListener('mouseover', sketch);
             column.classList.add('column');
             row.appendChild(column);
             columnNumber--;
@@ -20,6 +19,23 @@ function makeGrid(size) {
         sketchArea.appendChild(row);
         rowNumber--;
     }
+
+    sketchArea.addEventListener('dblclick', setupEventListener);
+}
+
+function setupEventListener(event) {
+    let sketchArea = event.currentTarget;
+    let dblClicked = sketchArea.getAttribute('dblClicked');
+
+    if (dblClicked === 'true') {
+        sketchArea.setAttribute('dblClicked', 'false');
+        sketchArea.removeEventListener('mouseover', sketch);
+        return;
+    }
+
+    sketchArea.setAttribute('dblClicked','true');
+    sketchArea.addEventListener('mouseover', sketch);
+    sketch(event);   // change the color for the target/starting square div
 }
 
 function sketch(event) {
