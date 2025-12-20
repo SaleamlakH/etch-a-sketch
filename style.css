@@ -60,6 +60,35 @@ h1 {
     height: 450px;
 
     flex-shrink: 0;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.column {
+    color: black;
+    border: 1px solid #b7b4b465;
+    flex: 1;
+}
+
+.round-top-left {
+    border-top-left-radius: 0.5em;
+}
+
+.round-top-right {
+    border-top-right-radius: 0.5em;
+}
+
+.round-bottom-left {
+    border-bottom-left-radius: 0.5em;
+}
+
+.round-bottom-right {
+    border-bottom-right-radius: 0.5em;
 }
 
 .size-control {
