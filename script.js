@@ -10,7 +10,8 @@ function makeGrid(size) {
         let columnNumber = size;
         while (columnNumber > 0) {
             const column = document.createElement('div');
-
+            
+            column.addEventListener('mouseover', sketch);
             column.classList.add('column');
             row.appendChild(column);
             columnNumber--;
@@ -19,6 +20,13 @@ function makeGrid(size) {
         sketchArea.appendChild(row);
         rowNumber--;
     }
+}
+
+function sketch(event) {
+    const target = event.target;
+    const sketchColor = getSelectedColor();
+
+    target.style.backgroundColor = sketchColor;
 }
 
 function roundGridCorners(row, rowNumber, size) {
