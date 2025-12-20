@@ -50,3 +50,25 @@ function changeGridSize() {
     span.textContent = `size\n${gridSize}x${gridSize}`;
     makeGrid(gridSize);
 }
+
+function showSelectedColor() {
+    const selectedColorDisplay = document.querySelector('.selected-color');
+    const selectedColor = getSelectedColor()
+
+    selectedColorDisplay.style.backgroundColor = color;
+}
+
+function getSelectedColor() {
+    const addedColors = Array.from(document.querySelectorAll('.added-colors > button'));
+    
+    let classes = [];
+    const selectedColor = addedColors.find(color => {
+       classes = Array.from(color.classList);
+       return  classes.includes('selected'); 
+    });
+
+    hexColor = classes.find(value => value.startsWith('#'));
+    return hexColor;
+}
+
+showSelectedColor();
