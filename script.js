@@ -33,4 +33,18 @@ function roundGridCorners(row, rowNumber, size) {
     return row;
 }
 
-makeGrid(16);
+makeGrid(16); //draw default grid width default size
+
+const gridSizeBtn = document.querySelector('.grid-size');
+gridSizeBtn.addEventListener('click', changeGridSize);
+
+function changeGridSize() {
+    let gridSize = parseInt(gridSizeBtn.textContent);
+
+    gridSize = parseInt(prompt('Set Grid Size: max 100', gridSize));
+    if (gridSize == null || Number.isNaN(gridSize)) return; //canceled or invalid input 
+    if (gridSize < 0 || gridSize > 100) return;  //negative number or beyond max limit - 100
+
+    gridSizeBtn.textContent = gridSize;
+    makeGrid(gridSize);
+}
