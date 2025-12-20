@@ -51,7 +51,7 @@ function changeGridSize() {
     makeGrid(gridSize);
 }
 
-function showSelectedColor() {
+function setSelectedColor() {
     const selectedColorDisplay = document.querySelector('.selected-color');
     const selectedColor = getSelectedColor()
 
@@ -71,4 +71,4 @@ function getSelectedColor() {
     return hexColor;
 }
 
-showSelectedColor();
+setSelectedColor();
