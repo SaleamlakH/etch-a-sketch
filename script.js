@@ -15,10 +15,22 @@ function makeGrid(size) {
             row.appendChild(column);
             columnNumber--;
         }
-        
+        row = roundGridCorners(row, rowNumber, size);
         sketchArea.appendChild(row);
         rowNumber--;
     }
+}
+
+function roundGridCorners(row, rowNumber, size) {
+    if (rowNumber === size) {
+        row.firstChild.classList.add('round-top-left');
+        row.lastChild.classList.add('round-top-right');
+    } else if (rowNumber === 1) {
+        row.firstChild.classList.add('round-bottom-left');
+        row.lastChild.classList.add('round-bottom-right');
+    }
+
+    return row;
 }
 
 makeGrid(16);
