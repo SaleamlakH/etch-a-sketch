@@ -115,6 +115,7 @@ button.grid-size {
 
 .size-control span {
     font-size: 12px;
+    white-space: pre-wrap;
 }
 
 .actions {

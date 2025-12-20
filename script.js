@@ -39,6 +39,7 @@ const gridSizeBtn = document.querySelector('.grid-size');
 gridSizeBtn.addEventListener('click', changeGridSize);
 
 function changeGridSize() {
+    let span = document.querySelector('.size-control > span')
     let gridSize = parseInt(gridSizeBtn.textContent);
 
     gridSize = parseInt(prompt('Set Grid Size: max 100', gridSize));
@@ -46,5 +47,6 @@ function changeGridSize() {
     if (gridSize < 0 || gridSize > 100) return;  //negative number or beyond max limit - 100
 
     gridSizeBtn.textContent = gridSize;
+    span.textContent = `size\n${gridSize}x${gridSize}`;
     makeGrid(gridSize);
 }
