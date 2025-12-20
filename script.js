@@ -55,7 +55,7 @@ function showSelectedColor() {
     const selectedColorDisplay = document.querySelector('.selected-color');
     const selectedColor = getSelectedColor()
 
-    selectedColorDisplay.style.backgroundColor = color;
+    selectedColorDisplay.style.backgroundColor = selectedColor;
 }
 
 function getSelectedColor() {
