@@ -96,3 +96,21 @@ function getSelectedColor() {
 }
 
 setSelectedColor();
+
+const addColorBtn = document.querySelector('.add-color');
+addColorBtn.addEventListener('click', addNewColor);
+
+function addNewColor() {
+    const colorInput = document.querySelector('#color-input');
+    
+    colorInput.click();
+    colorInput.addEventListener('change', addColoredBtn);
+}
+
+function addColoredBtn(event) {
+    const button = document.createElement('button');
+    const colorsContainer = document.querySelector('.added-colors');
+
+    button.style.backgroundColor = event.target.value;
+    colorsContainer.appendChild(button);
+}
