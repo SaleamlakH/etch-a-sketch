@@ -172,6 +172,10 @@ button.grid-size {
     background-color: #000;
 }
 
+#color-input {
+    display: none;
+}
+
 .help p {
     font-size: 12px;
     padding: 5px;
