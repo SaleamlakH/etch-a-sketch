@@ -170,10 +170,6 @@ button.grid-size {
     border-radius: 0.3em;
 }
 
-.added-colors button {
-    background-color: #000;
-}
-
 #color-input {
     display: none;
 }
