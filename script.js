@@ -114,3 +114,16 @@ function addColoredBtn(event) {
     button.style.backgroundColor = event.target.value;
     colorsContainer.appendChild(button);
 }
+
+//click to select a color for sketching
+const colorsContainer = document.querySelector('.added-colors');
+colorsContainer.addEventListener('click', selectTheColor);
+
+function selectTheColor(event) {
+    const targetElement = event.target;
+    if (targetElement.nodeName != 'BUTTON') return;
+    
+    const selectedColor = document.querySelector('.selected-color');
+    const color = targetElement.style.backgroundColor;
+    selectedColor.style.backgroundColor = color ? color : '#000';
+}
