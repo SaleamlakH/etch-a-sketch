@@ -1,3 +1,5 @@
+const DEFAULT_COLOR_BLACK = '#000';
+
 function makeGrid(size) {
     let sketchArea = document.querySelector('.sketch-area');
     sketchArea.replaceChildren();
@@ -75,27 +77,15 @@ function changeGridSize() {
     makeGrid(gridSize);
 }
 
-function setSelectedColor() {
-    const selectedColorDisplay = document.querySelector('.selected-color');
-    const selectedColor = getSelectedColor()
-
-    selectedColorDisplay.style.backgroundColor = selectedColor;
-}
-
-function getSelectedColor() {
-    const addedColors = Array.from(document.querySelectorAll('.added-colors > button'));
+function setDefaultSketchColor() {
+    const selectedColor = document.querySelector('.selected-color');
+    const defaultColor = document.querySelector('.default-color');
     
-    let classes = [];
-    const selectedColor = addedColors.find(color => {
-       classes = Array.from(color.classList);
-       return  classes.includes('selected'); 
-    });
-
-    hexColor = classes.find(value => value.startsWith('#'));
-    return hexColor;
+    defaultColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
+    selectedColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
 }
 
-setSelectedColor();
+setDefaultSketchColor();
 
 const addColorBtn = document.querySelector('.add-color');
 addColorBtn.addEventListener('click', addNewColor);
