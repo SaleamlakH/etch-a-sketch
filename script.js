@@ -47,6 +47,11 @@ function sketch(event) {
     target.style.backgroundColor = sketchColor;
 }
 
+function getSelectedColor() {
+    const selectedColor = document.querySelector('.selected-color');
+    return selectedColor.style.backgroundColor;
+}
+
 function roundGridCorners(row, rowNumber, size) {
     if (rowNumber === size) {
         row.firstChild.classList.add('round-top-left');
