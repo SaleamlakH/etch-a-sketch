@@ -1,4 +1,5 @@
 const DEFAULT_COLOR_BLACK = '#000';
+let  isRandomState = false;
 
 function makeGrid(size) {
     let sketchArea = document.querySelector('.sketch-area');
@@ -42,8 +43,9 @@ function setupEventListener(event) {
 
 function sketch(event) {
     const target = event.target;
+    if (isRandomState) setSketchColorRandom();
     const sketchColor = getSelectedColor();
-
+    
     target.style.backgroundColor = sketchColor;
 }
 
@@ -129,7 +131,10 @@ randomColorBtn.addEventListener('click', setSketchColorRandom);
 function setSketchColorRandom() {
     const selectedColor = document.querySelector('.selected-color');
     const sketchingColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
+    
+    isRandomState = true;
     selectedColor.style.backgroundColor = sketchingColor;
+    return sketchingColor;
 }
 
 function getRandomNum() {
