@@ -113,9 +113,9 @@ function addColoredBtn(event) {
 
 //click to select a color for sketching
 const colorsContainer = document.querySelector('.added-colors');
-colorsContainer.addEventListener('click', selectTheColor);
+colorsContainer.addEventListener('click', setSelectedColor);
 
-function selectTheColor(event) {
+function setSelectedColor(event) {
     const targetElement = event.target;
     if (targetElement.nodeName != 'BUTTON') return;
     
