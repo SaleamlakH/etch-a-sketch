@@ -127,8 +127,8 @@ const randomColorBtn = document.querySelector('.random-color');
 randomColorBtn.addEventListener('click', setSketchColorRandom);
 
 function setSketchColorRandom() {
-    const sketchingColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
     const selectedColor = document.querySelector('.selected-color');
+    const sketchingColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
     selectedColor.style.backgroundColor = sketchingColor;
 }
 
