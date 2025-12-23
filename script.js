@@ -43,8 +43,7 @@ function setupEventListener(event) {
 
 function sketch(event) {
     const target = event.target;
-    if (isRandomState) setRandomColor();
-    const sketchColor = getSelectedColor();
+    const sketchColor = isRandomState ? setRandomColor() : getSelectedColor();
     
     target.style.backgroundColor = sketchColor;
 }
