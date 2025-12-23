@@ -43,7 +43,7 @@ function setupEventListener(event) {
 
 function sketch(event) {
     const target = event.target;
-    if (isRandomState) setSketchColorRandom();
+    if (isRandomState) setRandomColor();
     const sketchColor = getSelectedColor();
     
     target.style.backgroundColor = sketchColor;
@@ -126,15 +126,15 @@ function selectTheColor(event) {
 }
 
 const randomColorBtn = document.querySelector('.random-color');
-randomColorBtn.addEventListener('click', setSketchColorRandom);
+randomColorBtn.addEventListener('click', setRandomColor);
 
-function setSketchColorRandom() {
+function setRandomColor() {
     const selectedColor = document.querySelector('.selected-color');
-    const sketchingColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
+    const randomColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
     
     isRandomState = true;
-    selectedColor.style.backgroundColor = sketchingColor;
-    return sketchingColor;
+    selectedColor.style.backgroundColor = randomColor;
+    return randomColor;
 }
 
 function getRandomNum() {
