@@ -122,3 +122,16 @@ function selectTheColor(event) {
     const color = targetElement.style.backgroundColor;
     selectedColor.style.backgroundColor = color ? color : '#000';
 }
+
+const randomColorBtn = document.querySelector('.random-color');
+randomColorBtn.addEventListener('click', setSketchColorRandom);
+
+function setSketchColorRandom() {
+    const sketchingColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
+    const selectedColor = document.querySelector('.selected-color');
+    selectedColor.style.backgroundColor = sketchingColor;
+}
+
+function getRandomNum() {
+    return Math.floor(Math.random()*255 + 1);
+}
