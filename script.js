@@ -125,13 +125,23 @@ function selectTheColor(event) {
 }
 
 const randomColorBtn = document.querySelector('.random-color');
-randomColorBtn.addEventListener('click', setRandomColor);
+randomColorBtn.addEventListener('click', setRandomState);
+
+function setRandomState() {
+    if (isRandomState) {
+        setDefaultSketchColor();
+        isRandomState = false;
+        return;
+    }
+    
+    isRandomState = true;
+    setRandomColor();
+}
 
 function setRandomColor() {
     const selectedColor = document.querySelector('.selected-color');
     const randomColor = `rgb(${getRandomNum()}, ${getRandomNum()}, ${getRandomNum()})`;
     
-    isRandomState = true;
     selectedColor.style.backgroundColor = randomColor;
     return randomColor;
 }
