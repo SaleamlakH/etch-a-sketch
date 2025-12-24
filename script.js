@@ -172,3 +172,31 @@ function setColorAlphaValue(rgbaColor) {
 
     return `rgba(${rgbaValues[0]}, ${rgbaValues[1]}, ${rgbaValues[2]}, ${rgbaValues[3]})`;
 }
+
+
+// RGB to HSL convertor
+// Credit https://gist.github.com/vahidk/05184faf3d92a0aa1b46aeaa93b07786
+function rgbToHsl(red, green, blue) {
+    red /= 255; green /= 255; blue /= 255;
+
+    let max = Math.max(red, green, blue);
+    let min = Math.min(red, gree, blue);
+    let diff = max - min;
+    let hue;
+
+    if (diff === 0) hue = 0;
+    else if (max === red) hue = (green - blue) / diff % 6;
+    else if (max === green) hue = (blue - red) / diff + 2;
+    else if (max === blue) hue = (red - green) / diff + 4;
+    
+    let lightness = (min + max) / 2;
+    let saturation = (diff === 0)
+        ? 0 
+        : diff / (1 - Math.abs(2 * lightness - 1));
+    
+    hue = Math.round(hue * 60);
+    saturation = Math.round(saturation);
+    lightness = Math.round(lightness);
+    
+    return [hue, saturation, lightness];
+}
