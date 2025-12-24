@@ -43,9 +43,14 @@ function setupEventListener(event) {
 
 function sketch(event) {
     const target = event.target;
-    const sketchColor = isRandomState ? setRandomColor() : getSelectedColor();
+
+    if (isFilled(target)) {
+        target.style.backgroundColor = setColorAlphaValue(target.style.backgroundColor);
+        return;
+    }
     
-    target.style.backgroundColor = sketchColor;
+    const sketchColor = isRandomState ? setRandomColor() : getSelectedColor();  
+    target.style.backgroundColor = setColorAlphaValue(sketchColor);
 }
 
 function getSelectedColor() {
@@ -148,4 +153,22 @@ function setRandomColor() {
 
 function getRandomNum() {
     return Math.floor(Math.random()*255 + 1);
+}
+
+function isFilled(target) {
+    if (target.style.backgroundColor) return true;
+    return false;
+}
+
+function setColorAlphaValue(rgbaColor) {
+    let rgbaValues = rgbaColor.slice(rgbaColor.indexOf('(') + 1, -1).split(', ');
+
+    if (rgbaValues.length == 4) {
+        let alphaValue = rgbaValues.at(-1) * 100;
+        rgbaValues[3] = (alphaValue + 10)/100;
+    } else {
+        rgbaValues.push('0.1');
+    }
+
+    return `rgba(${rgbaValues[0]}, ${rgbaValues[1]}, ${rgbaValues[2]}, ${rgbaValues[3]})`;
 }
