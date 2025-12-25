@@ -6,11 +6,15 @@ const gridSizeBtn = document.querySelector('.grid-size');
 const addColorBtn = document.querySelector('.add-color');
 const randomColorBtn = document.querySelector('.random-color');
 const colorsContainer = document.querySelector('.added-colors');
+const colorInput = document.querySelector('#color-input');
+
 
 gridSizeBtn.addEventListener('click', changeGridSize);
-addColorBtn.addEventListener('click', addNewColor);
+addColorBtn.addEventListener('click', () => colorInput.click());
 randomColorBtn.addEventListener('click', setRandomState);
 colorsContainer.addEventListener('click', setSelectedColor);
+colorInput.addEventListener('change', addColoredBtn);
+
 
 function makeGrid(size) {
     let sketchArea = document.querySelector('.sketch-area');
@@ -105,13 +109,6 @@ function setDefaultSketchColor() {
 
 setDefaultSketchColor();
 
-function addNewColor() {
-    const colorInput = document.querySelector('#color-input');
-    
-    colorInput.click();
-    colorInput.addEventListener('change', addColoredBtn);
-}
-
 function addColoredBtn(event) {
     const button = document.createElement('button');
     const colorsContainer = document.querySelector('.added-colors');
@@ -123,7 +120,6 @@ function addColoredBtn(event) {
 }
 
 function selectAddedColor(color) {
-    console.log(color);
     const selectedColor = document.querySelector('.selected-color');
     selectedColor.style.backgroundColor = color;
 }
