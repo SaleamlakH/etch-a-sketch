@@ -33,7 +33,7 @@ function makeGrid(size) {
         rowNumber--;
     }
 
-    sketchArea.addEventListener('dblclick', setupEventListener);
+    sketchArea.addEventListener('dblclick', setSketchMode);
 }
 
 function setSketchMode(event) {
