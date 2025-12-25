@@ -180,7 +180,7 @@ function rgbToHsl(red, green, blue) {
     red /= 255; green /= 255; blue /= 255;
 
     let max = Math.max(red, green, blue);
-    let min = Math.min(red, gree, blue);
+    let min = Math.min(red, green, blue);
     let diff = max - min;
     let hue;
 
@@ -195,8 +195,8 @@ function rgbToHsl(red, green, blue) {
         : diff / (1 - Math.abs(2 * lightness - 1));
     
     hue = Math.round(hue * 60);
-    saturation = Math.round(saturation);
-    lightness = Math.round(lightness);
+    saturation = Math.round(saturation * 100);
+    lightness = Math.round(lightness * 100);
     
     return [hue, saturation, lightness];
 }
