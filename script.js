@@ -40,7 +40,7 @@ function setupEventListeners() {
     addColorBtn.addEventListener('click', () => colorInput.click());
     randomColorBtn.addEventListener('click', setRandomState);
     colorsContainer.addEventListener('click', setSelectedColor);
-    colorInput.addEventListener('change', addColoredBtn);
+    colorInput.addEventListener('change', addNewColor);
     sketchArea.addEventListener('dblclick', setSketchMode);
 }
 
@@ -108,7 +108,7 @@ function changeGridSize() {
     makeGrid(gridSize);
 }
 
-function addColoredBtn(event) {
+function addNewColor(event) {
     const button = document.createElement('button');
     const colorsContainer = document.querySelector('.added-colors');
     let color = event.target.value
