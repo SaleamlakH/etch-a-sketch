@@ -13,15 +13,6 @@ makeGrid(16);
 setDefaultSketchColor();
 setupEventListeners();
 
-function setupEventListeners() {
-    gridSizeBtn.addEventListener('click', changeGridSize);
-    addColorBtn.addEventListener('click', () => colorInput.click());
-    randomColorBtn.addEventListener('click', setRandomState);
-    colorsContainer.addEventListener('click', setSelectedColor);
-    colorInput.addEventListener('change', addColoredBtn);
-    sketchArea.addEventListener('dblclick', setSketchMode);
-}
-
 function makeGrid(size) {
     sketchArea.replaceChildren();
     
@@ -44,18 +35,21 @@ function makeGrid(size) {
     }
 }
 
-function setSketchMode(event) {
-    let sketchArea = event.currentTarget;
+function setupEventListeners() {
+    gridSizeBtn.addEventListener('click', changeGridSize);
+    addColorBtn.addEventListener('click', () => colorInput.click());
+    randomColorBtn.addEventListener('click', setRandomState);
+    colorsContainer.addEventListener('click', setSelectedColor);
+    colorInput.addEventListener('change', addColoredBtn);
+    sketchArea.addEventListener('dblclick', setSketchMode);
+}
 
-    if (isSketchMode) {
-        isSketchMode = false;
-        sketchArea.removeEventListener('mouseover', sketch);
-        return;
-    }
-
-    isSketchMode = true;
-    sketchArea.addEventListener('mouseover', sketch);
-    sketch(event);   // sketch the target div immediately
+function setDefaultSketchColor() {
+    const selectedColor = document.querySelector('.selected-color');
+    const defaultColor = document.querySelector('.default-color');
+    
+    defaultColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
+    selectedColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
 }
 
 function sketch(event) {
@@ -68,6 +62,20 @@ function sketch(event) {
     
     const sketchColor = isRandomState ? setRandomColor() : getSelectedColor();  
     target.style.backgroundColor = sketchColor;
+}
+
+function setSketchMode(event) {
+    let sketchArea = event.currentTarget;
+
+    if (isSketchMode) {
+        isSketchMode = false;
+        sketchArea.removeEventListener('mouseover', sketch);
+        return;
+    }
+
+    isSketchMode = true;
+    sketchArea.addEventListener('mouseover', sketch);
+    sketch(event);   // sketch the target div immediately
 }
 
 function getSelectedColor() {
@@ -98,14 +106,6 @@ function changeGridSize() {
     gridSizeBtn.textContent = gridSize;
     span.textContent = `size\n${gridSize}x${gridSize}`;
     makeGrid(gridSize);
-}
-
-function setDefaultSketchColor() {
-    const selectedColor = document.querySelector('.selected-color');
-    const defaultColor = document.querySelector('.default-color');
-    
-    defaultColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
-    selectedColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
 }
 
 function addColoredBtn(event) {
