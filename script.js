@@ -1,4 +1,5 @@
 const DEFAULT_COLOR_BLACK = '#000';
+let isSketchMode = false;
 let  isRandomState = false;
 
 const gridSizeBtn = document.querySelector('.grid-size');
@@ -38,17 +39,16 @@ function makeGrid(size) {
 
 function setSketchMode(event) {
     let sketchArea = event.currentTarget;
-    let dblClicked = sketchArea.getAttribute('dblClicked');
 
-    if (dblClicked === 'true') {
-        sketchArea.setAttribute('dblClicked', 'false');
+    if (isSketchMode) {
+        isSketchMode = false;
         sketchArea.removeEventListener('mouseover', sketch);
         return;
     }
 
-    sketchArea.setAttribute('dblClicked','true');
+    isSketchMode = true;
     sketchArea.addEventListener('mouseover', sketch);
-    sketch(event);   // change the color for the target/starting square div
+    sketch(event);   // sketch the target div immediately
 }
 
 function sketch(event) {
