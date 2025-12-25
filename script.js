@@ -36,7 +36,7 @@ function makeGrid(size) {
     sketchArea.addEventListener('dblclick', setupEventListener);
 }
 
-function setupEventListener(event) {
+function setSketchMode(event) {
     let sketchArea = event.currentTarget;
     let dblClicked = sketchArea.getAttribute('dblClicked');
 
