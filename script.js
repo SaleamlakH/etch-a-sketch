@@ -7,18 +7,22 @@ const addColorBtn = document.querySelector('.add-color');
 const randomColorBtn = document.querySelector('.random-color');
 const colorsContainer = document.querySelector('.added-colors');
 const colorInput = document.querySelector('#color-input');
-
-gridSizeBtn.addEventListener('click', changeGridSize);
-addColorBtn.addEventListener('click', () => colorInput.click());
-randomColorBtn.addEventListener('click', setRandomState);
-colorsContainer.addEventListener('click', setSelectedColor);
-colorInput.addEventListener('change', addColoredBtn);
+const sketchArea = document.querySelector('.sketch-area');
 
 makeGrid(16);
 setDefaultSketchColor();
+setupEventListeners();
+
+function setupEventListeners() {
+    gridSizeBtn.addEventListener('click', changeGridSize);
+    addColorBtn.addEventListener('click', () => colorInput.click());
+    randomColorBtn.addEventListener('click', setRandomState);
+    colorsContainer.addEventListener('click', setSelectedColor);
+    colorInput.addEventListener('change', addColoredBtn);
+    sketchArea.addEventListener('dblclick', setSketchMode);
+}
 
 function makeGrid(size) {
-    let sketchArea = document.querySelector('.sketch-area');
     sketchArea.replaceChildren();
     
     let rowNumber = size;
@@ -38,8 +42,6 @@ function makeGrid(size) {
         sketchArea.appendChild(row);
         rowNumber--;
     }
-
-    sketchArea.addEventListener('dblclick', setSketchMode);
 }
 
 function setSketchMode(event) {
