@@ -8,13 +8,14 @@ const randomColorBtn = document.querySelector('.random-color');
 const colorsContainer = document.querySelector('.added-colors');
 const colorInput = document.querySelector('#color-input');
 
-
 gridSizeBtn.addEventListener('click', changeGridSize);
 addColorBtn.addEventListener('click', () => colorInput.click());
 randomColorBtn.addEventListener('click', setRandomState);
 colorsContainer.addEventListener('click', setSelectedColor);
 colorInput.addEventListener('change', addColoredBtn);
 
+makeGrid(16);
+setDefaultSketchColor();
 
 function makeGrid(size) {
     let sketchArea = document.querySelector('.sketch-area');
@@ -84,8 +85,6 @@ function roundGridCorners(row, rowNumber, size) {
     return row;
 }
 
-makeGrid(16); //draw default grid width default size
-
 function changeGridSize() {
     let span = document.querySelector('.size-control > span')
     let gridSize = parseInt(gridSizeBtn.textContent);
@@ -106,8 +105,6 @@ function setDefaultSketchColor() {
     defaultColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
     selectedColor.style.backgroundColor = DEFAULT_COLOR_BLACK;
 }
-
-setDefaultSketchColor();
 
 function addColoredBtn(event) {
     const button = document.createElement('button');
