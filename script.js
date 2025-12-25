@@ -45,12 +45,12 @@ function sketch(event) {
     const target = event.target;
 
     if (isFilled(target)) {
-        target.style.backgroundColor = setColorAlphaValue(target.style.backgroundColor);
+        target.style.backgroundColor = darkenColor(target.style.backgroundColor);
         return;
-    }
+    } 
     
     const sketchColor = isRandomState ? setRandomColor() : getSelectedColor();  
-    target.style.backgroundColor = setColorAlphaValue(sketchColor);
+    target.style.backgroundColor = sketchColor;
 }
 
 function getSelectedColor() {
@@ -158,6 +158,14 @@ function getRandomNum() {
 function isFilled(target) {
     if (target.style.backgroundColor) return true;
     return false;
+}
+
+function darkenColor(rgbColor) {
+    let [red, green, blue] = rgbColor.slice(rgbColor.indexOf('(') + 1, -1).split(', ');
+    let [hue, saturation, lightness] = rgbToHsl(red, green, blue);
+
+    lightness -= 5;
+    return `hsl(${hue} ${saturation} ${lightness})`;
 }
 
 function setColorAlphaValue(rgbaColor) {
