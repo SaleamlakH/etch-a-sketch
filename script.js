@@ -1,6 +1,16 @@
 const DEFAULT_COLOR_BLACK = '#000';
 let  isRandomState = false;
 
+const gridSizeBtn = document.querySelector('.grid-size');
+const addColorBtn = document.querySelector('.add-color');
+const randomColorBtn = document.querySelector('.random-color');
+const colorsContainer = document.querySelector('.added-colors');
+
+gridSizeBtn.addEventListener('click', changeGridSize);
+addColorBtn.addEventListener('click', addNewColor);
+randomColorBtn.addEventListener('click', setRandomState);
+colorsContainer.addEventListener('click', setSelectedColor);
+
 function makeGrid(size) {
     let sketchArea = document.querySelector('.sketch-area');
     sketchArea.replaceChildren();
@@ -72,9 +82,6 @@ function roundGridCorners(row, rowNumber, size) {
 
 makeGrid(16); //draw default grid width default size
 
-const gridSizeBtn = document.querySelector('.grid-size');
-gridSizeBtn.addEventListener('click', changeGridSize);
-
 function changeGridSize() {
     let span = document.querySelector('.size-control > span')
     let gridSize = parseInt(gridSizeBtn.textContent);
@@ -97,9 +104,6 @@ function setDefaultSketchColor() {
 }
 
 setDefaultSketchColor();
-
-const addColorBtn = document.querySelector('.add-color');
-addColorBtn.addEventListener('click', addNewColor);
 
 function addNewColor() {
     const colorInput = document.querySelector('#color-input');
@@ -124,10 +128,6 @@ function selectAddedColor(color) {
     selectedColor.style.backgroundColor = color;
 }
 
-//click to select a color for sketching
-const colorsContainer = document.querySelector('.added-colors');
-colorsContainer.addEventListener('click', setSelectedColor);
-
 function setSelectedColor(event) {
     const targetElement = event.target;
     if (targetElement.nodeName != 'BUTTON') return;
@@ -136,9 +136,6 @@ function setSelectedColor(event) {
     const color = targetElement.style.backgroundColor;
     selectedColor.style.backgroundColor = color ? color : '#000';
 }
-
-const randomColorBtn = document.querySelector('.random-color');
-randomColorBtn.addEventListener('click', setRandomState);
 
 function setRandomState() {
     if (isRandomState) {
