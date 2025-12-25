@@ -168,19 +168,6 @@ function darkenColor(rgbColor) {
     return `hsl(${hue} ${saturation} ${lightness})`;
 }
 
-function setColorAlphaValue(rgbaColor) {
-    let rgbaValues = rgbaColor.slice(rgbaColor.indexOf('(') + 1, -1).split(', ');
-
-    if (rgbaValues.length == 4) {
-        let alphaValue = rgbaValues.at(-1) * 100;
-        rgbaValues[3] = (alphaValue + 10)/100;
-    } else {
-        rgbaValues.push('0.1');
-    }
-
-    return `rgba(${rgbaValues[0]}, ${rgbaValues[1]}, ${rgbaValues[2]}, ${rgbaValues[3]})`;
-}
-
 
 // RGB to HSL convertor
 // Credit https://gist.github.com/vahidk/05184faf3d92a0aa1b46aeaa93b07786
