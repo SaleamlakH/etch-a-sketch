@@ -56,8 +56,9 @@ function sketch(event) {
     const target = event.target;
     if (target.children.length) return;
 
-    if (isFilled(target)) {
-        target.style.backgroundColor = darkenColor(target.style.backgroundColor);
+    let targetBgColor = target.style.backgroundColor;
+    if (isFilled(targetBgColor)) {
+        target.style.backgroundColor = darkenColor(targetBgColor);
         return;
     } 
     
@@ -156,8 +157,8 @@ function getRandomNum() {
     return Math.floor(Math.random()*255 + 1);
 }
 
-function isFilled(target) {
-    if (target.style.backgroundColor) return true;
+function isFilled(targetBgColor) {
+    if (targetBgColor) return true;
     return false;
 }
 
