@@ -172,6 +172,11 @@ button.grid-size {
     border-radius: 0.3em;
 }
 
+button:hover {
+    border:1px solid orange;
+    background-color: #0f0b9252;
+}
+
 #color-input {
     display: none;
 }
