@@ -14,9 +14,7 @@ makeGrid(16);
 setDefaultSketchColor();
 setupEventListeners();
 
-function makeGrid(size) {
-    sketchArea.replaceChildren();
-    
+function makeGrid(size) {    
     let rowNumber = size;
     while (rowNumber > 0) {
         let row = document.createElement('div');
@@ -106,6 +104,8 @@ function changeGridSize() {
 
     gridSizeBtn.textContent = gridSize;
     span.textContent = `size\n${gridSize}x${gridSize}`;
+    
+    sketchArea.replaceChildren();
     makeGrid(gridSize);
 }
 
