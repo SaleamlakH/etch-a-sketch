@@ -180,14 +180,10 @@ button.grid-size {
     padding: 5px;
     margin: 0;
     border-top: 1px solid #f4f4f452;
+    border-bottom: 1px solid #f4f4f452;
     text-align: center;
 }
 
-.help .term {
+.help span { 
     color: #25f2f9;
-    margin-right: auto;
-}
-
-.help:last-child {
-    border-bottom: 1px solid #f4f4f452;
 }
