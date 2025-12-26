@@ -161,6 +161,8 @@ button.grid-size {
     width: 25px;
     border: 1px solid #f4f4f452;
     border-radius: 0.5em;
+
+    flex-shrink: 0;
 }
 
 .added-colors > button {
