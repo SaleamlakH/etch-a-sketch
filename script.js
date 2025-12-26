@@ -25,6 +25,7 @@ const colorsContainer = document.querySelector('.added-colors');
 const colorInput = document.querySelector('#color-input');
 const sketchArea = document.querySelector('.sketch-area');
 const selectedColor = document.querySelector('.selected-color');
+const clearGridBtn = document.querySelector('.clear-grid');
 
 makeGrid(16);
 setDefaultSketchColor();
@@ -57,6 +58,7 @@ function setupEventListeners() {
     colorsContainer.addEventListener('click', setSelectedColor);
     colorInput.addEventListener('change', addNewColor);
     sketchArea.addEventListener('dblclick', setSketchMode);
+    clearGridBtn.addEventListener('click', clearSketchArea);
 }
 
 function setDefaultSketchColor() {
@@ -179,6 +181,12 @@ function darkenColor(rgbColor) {
 
     lightness -= 5;
     return `hsl(${hue} ${saturation} ${lightness})`;
+}
+
+function clearSketchArea() {
+    const gridSize = +gridSizeBtn.textContent;
+    sketchArea.replaceChildren();
+    makeGrid(gridSize);
 }
 
 
