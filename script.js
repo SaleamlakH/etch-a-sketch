@@ -1,3 +1,19 @@
+/** Functions Overview (doesn't include all)
+ * makeGrid: Creates a square grid (default 16x16).
+ * setupEventListeners: Registers all button and grid interaction listeners.
+ * setDefaultSketchColor: Sets the initial pen color.
+ * 
+ * sketch: Logic to paint a cell.
+ * setSketchMode: Toggles 'mousemove' painting via double-click.
+ * setRandomState: Toggles whether each move generates a new random color.
+ * darkenColor: Reduces HSL lightness for progressive darkening.
+ * changeGridSize: Clears existing grid and rebuilds with new dimensions.
+ * 
+ * addNewColor: Triggers hidden input to add and select a custom color.
+ * setSelectedColor: Updates the active pen color.
+ * setRandomColor: Generates and returns a random RGB value.
+ */
+
 const DEFAULT_COLOR_BLACK = '#000';
 let isSketchMode = false;
 let  isRandomState = false;
