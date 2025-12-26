@@ -155,10 +155,12 @@ function setRandomState() {
     if (isRandomState) {
         setDefaultSketchColor();
         isRandomState = false;
+        randomColorBtn.classList.toggle('mode');
         return;
     }
     
     isRandomState = true;
+    randomColorBtn.classList.toggle('mode');
     setRandomColor();
 }
 
