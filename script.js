@@ -54,6 +54,7 @@ function setDefaultSketchColor() {
 
 function sketch(event) {
     const target = event.target;
+    if (target.children.length) return;
 
     if (isFilled(target)) {
         target.style.backgroundColor = darkenColor(target.style.backgroundColor);
