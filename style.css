@@ -177,6 +177,15 @@ button:hover {
     background-color: #0f0b9252;
 }
 
+button.mode {
+    border:1px solid orange;
+    background-color: #0f0b9252;
+}
+
+button.mode:hover {
+    background-color: #2e2b86;
+}
+
 #color-input {
     display: none;
 }

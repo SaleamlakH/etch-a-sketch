@@ -17,6 +17,7 @@
 const DEFAULT_COLOR_BLACK = '#000';
 let isSketchMode = false;
 let  isRandomState = false;
+let isEraserMode = false;
 
 const gridSizeBtn = document.querySelector('.grid-size');
 const addColorBtn = document.querySelector('.add-color');
@@ -26,6 +27,7 @@ const colorInput = document.querySelector('#color-input');
 const sketchArea = document.querySelector('.sketch-area');
 const selectedColor = document.querySelector('.selected-color');
 const clearGridBtn = document.querySelector('.clear-grid');
+const eraserBtn = document.querySelector('.eraser');
 
 makeGrid(16);
 setDefaultSketchColor();
@@ -59,6 +61,7 @@ function setupEventListeners() {
     colorInput.addEventListener('change', addNewColor);
     sketchArea.addEventListener('dblclick', setSketchMode);
     clearGridBtn.addEventListener('click', clearSketchArea);
+    eraserBtn.addEventListener('click', setEraserMode);
 }
 
 function setDefaultSketchColor() {
@@ -171,7 +174,7 @@ function getRandomNum() {
 }
 
 function isFilled(targetBgColor) {
-    if (targetBgColor) return true;
+    if (targetBgColor && targetBgColor != 'transparent') return true;
     return false;
 }
 
@@ -187,6 +190,25 @@ function clearSketchArea() {
     const gridSize = +gridSizeBtn.textContent;
     sketchArea.replaceChildren();
     makeGrid(gridSize);
+}
+
+function eraseSketch(event) {
+    const target = event.target;
+    target.style.backgroundColor = 'transparent';
+}
+
+function setEraserMode() {
+    if (isEraserMode) {
+        isEraserMode = false;
+        eraserBtn.classList.toggle('mode');
+        sketchArea.removeEventListener('mouseover', eraseSketch);
+        return;
+    }
+
+    isEraserMode = true;
+    eraserBtn.classList.toggle('mode');
+    sketchArea.removeEventListener('mouseover', sketch);
+    sketchArea.addEventListener('mouseover', eraseSketch);
 }
 
 
