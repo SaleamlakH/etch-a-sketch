@@ -154,7 +154,7 @@ button.grid-size {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
 }
 
 .selected-color {
