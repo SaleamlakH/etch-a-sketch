@@ -176,16 +176,11 @@ button.grid-size {
     display: none;
 }
 
-.help p {
-    font-size: 12px;
+.help {
     padding: 5px;
     margin: 0;
     border-top: 1px solid #f4f4f452;
-    text-align: left;
-
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    text-align: center;
 }
 
 .help .term {
