@@ -104,15 +104,19 @@ h1 {
     gap: 10px;
 }
 
-button.grid-size {
+button.grid-size,
+.actions > button {
     color: #fff;
-    font-size: 18px;
     font-weight: 700;
     text-align: center;
-    padding: 4px;
     background-color: #0f0b92;
-    border: 1px solid #f4f4f472;
+    border: 1px solid #f4f4f452;
     border-radius: 0.5em;
+}
+
+button.grid-size {
+    font-size: 18px;
+    padding: 4px;
     flex: 1;
 }
 
@@ -131,15 +135,8 @@ button.grid-size {
 }
 
 .actions button {
-    color: #fff;
     font-size: 14px;
-    font-weight: 700;
-    text-align: center;
     padding: 5px;
-    background-color: #0f0b92;
-    border: none;
-    border: 1px solid #f4f4f452;
-    border-radius: 0.5em;
 }
 
 .colors {
