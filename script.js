@@ -10,7 +10,6 @@ const colorInput = document.querySelector('#color-input');
 const sketchArea = document.querySelector('.sketch-area');
 const selectedColor = document.querySelector('.selected-color');
 
-
 makeGrid(16);
 setDefaultSketchColor();
 setupEventListeners();
@@ -128,7 +127,7 @@ function setSelectedColor(event) {
     if (targetElement.nodeName != 'BUTTON') return;
     
     const color = targetElement.style.backgroundColor;
-    selectedColor.style.backgroundColor = color ? color : '#000';
+    selectedColor.style.backgroundColor = color;
 }
 
 function setRandomState() {
