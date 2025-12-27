@@ -117,8 +117,8 @@ function changeGridSize() {
     let span = document.querySelector('.size-control > span')
     let gridSize = parseInt(gridSizeBtn.textContent);
 
-    gridSize = parseInt(prompt('Set Grid Size: max 100', gridSize));
-    if (gridSize == null || Number.isNaN(gridSize)) return; //canceled or invalid input 
+    gridSize = Number(prompt('Set Grid Size: max 100', gridSize));
+    if (!gridSize) return; //canceled or invalid input 
     if (gridSize < 0 || gridSize > 100) return;  //negative number or beyond max limit - 100
 
     gridSizeBtn.textContent = gridSize;
