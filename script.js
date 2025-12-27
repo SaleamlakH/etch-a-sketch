@@ -86,8 +86,6 @@ function sketch(event) {
 }
 
 function setSketchMode(event) {
-    let sketchArea = event.currentTarget;
-
     if (isSketchMode) {
         isSketchMode = false;
         sketchArea.removeEventListener('mouseover', sketch);
